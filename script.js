@@ -7,16 +7,18 @@ $(document).ready(function() {
 
     timeBgColor();
     function timeBgColor() {
-    // if ($(".hourRow").attr("value") === currentHour) {
-    //     $(".eventDescription").addClass("present");
-
-    //     } else if ($(".hourRow").attr("value") > currentHour) {
-    //         $(".eventDescription").addClass("past");
-
-    //     } else if ($(".hourRow").attr("value") < currentHour) {
-    //         $(".eventDescription").addClass("future");
-    //     }
-    //     // console.log($(".hourRow").attr("value"));
+        $(".hourRow").each(function() {
+            var timeBlock = parseInt($(this).attr("value"));
+            // Compare each timeblock to current hour
+            if (timeBlock < currentHour) {
+                $(this).addClass("past");
+            }else if (timeBlock == currentHour) {
+                $(this).addClass("present");
+            }else if (timeBlock > currentHour) {
+                $(this).addClass("future");
+            }
+        })
+    
     }   
     $(".saveBtn").on("click", function(){
         localStorage.setItem ("9", ($("#block9").val()))
