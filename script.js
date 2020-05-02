@@ -9,7 +9,7 @@ $(document).ready(function() {
     function timeBgColor() {
         $(".hourRow").each(function() {
             var timeBlock = parseInt($(this).attr("value"));
-            // Compare each timeblock to current hour
+            // Assigning the time colors based off of comparison between time and current hour. 
             if (timeBlock < currentHour) {
                 $(this).addClass("past");
             }else if (timeBlock == currentHour) {
@@ -20,6 +20,7 @@ $(document).ready(function() {
         })
     
     }   
+    // Clicking the save button will set the input text to the block
     $(".saveBtn").on("click", function(){
         localStorage.setItem ("9", ($("#block9").val()))
         localStorage.setItem ("10", ($("#block10").val()))
@@ -33,7 +34,7 @@ $(document).ready(function() {
 
     });
 
-    
+    // Gets the local storage item and appends it to the block even with refresh. 
     $("#block9").append(localStorage.getItem("9"));
     $("#block10").append(localStorage.getItem("10"));
     $("#block11").append(localStorage.getItem("11"));
